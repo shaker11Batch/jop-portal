@@ -1,12 +1,11 @@
-import React, { use } from 'react';
-import Lottie from 'lottie-react';
-import registerLottie from '../assets/lotties/Animation - 1748603952557.json'
+import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext/AuthContext';
+import loginLottie from '../assets/lotties/Animation - 1748677891289.json'
+import Lottie from 'lottie-react';
 import SocialLogin from './Shared/SocialLogin';
-
-const Register = () => {
-
-    const { createUser } = use(AuthContext)
+const SignIn = () => {
+ 
+const {logInUser} = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault()
@@ -15,7 +14,7 @@ const Register = () => {
         const password = form.password.value;
         const user = { email, password }
         console.log(user)
-        createUser(email, password)
+       logInUser(email, password)
             .then(res => {
                 console.log(res.user)
             })
@@ -25,16 +24,17 @@ const Register = () => {
     }
 
 
+
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
 
-                    <Lottie style={{ width: '400px' }} animationData={registerLottie} loop={true}></Lottie>
+                    <Lottie style={{ width: '400px' }} animationData={loginLottie} loop={true}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
-                        <h1 className="text-5xl font-bold">Register now!</h1>
+                        <h1 className="text-5xl font-bold">Login now!</h1>
                         <form action="" onSubmit={handleRegister}>
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
@@ -53,4 +53,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default SignIn;
