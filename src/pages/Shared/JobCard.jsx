@@ -1,27 +1,42 @@
 import React from 'react';
-
+import { IoLocationSharp } from "react-icons/io5";
+import { Link } from 'react-router';
 const JobCard = ({ job }) => {
-    const {title , location, jobType, cartegory, description, company} =job
-    return (
-          <div className="card bg-base-100 shadow-sm">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">
-    {title}
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div>
-      <div className="badge badge-outline">Products</div>
+  const { title, location,_id, requirements, jobType, salaryRange, description, company, company_logo } = job;
+  return (
+    <div className="card bg-base-100 shadow-sm">
+      <div className='flex  gap-3'>
+        <figure>
+          <img
+            src={company_logo}
+            alt="Shoes" />
+        </figure>
+        <div>
+          <h3 className="text-2xl">{company}</h3>
+          <p className='flex  items-center gap-2'><IoLocationSharp /> {location}</p>
+        </div>
+      </div>
+      <div className="card-body">
+        <h2 className="card-title">
+          {title}
+          <div className="badge badge-secondary">{jobType}</div>
+        </h2>
+        <p>Salary: {salaryRange.min}- {salaryRange.max} {salaryRange.currency}</p>
+        <p>{description}</p>
+        <div className="card-actions">
+          {
+            requirements.map((skill, index) => <div key={index} className="badge badge-outline">{skill}</div>)
+          }
+
+        </div>
+        <div className="card-actions justify-end mt-4">
+          <Link to={`/jobs/${_id}`}>
+            <button className="btn btn-primary">Show Details</button>
+          </Link>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-    );
+  );
 };
 
 export default JobCard;

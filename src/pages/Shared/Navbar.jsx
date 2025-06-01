@@ -17,9 +17,9 @@ const Navbar = () => {
     }
 
     const links = <>
-        <NavLink to='/'><li>Home</li></NavLink>
-        <NavLink to='/about'><li>About</li></NavLink>
-        <NavLink to='/res'><li>Res</li></NavLink>
+        <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/'><li className='mr-5'>Home</li></NavLink>
+        <NavLink  className={({isActive}) => isActive && 'text-blue-500'} to='/about'><li className='mr-5'>About</li></NavLink>
+        <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/res'><li className='mr-5'>Res</li></NavLink>
     </>
 
     return (

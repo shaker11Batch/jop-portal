@@ -5,7 +5,7 @@ import JobCard from './Shared/JobCard';
 
 const HotJobs = ({ jobs }) => {
 
-    console.log(jobs)
+    // console.log(jobs)
     return (
         <div>
             <h2 className="text-4xl text-center my-6">Hot Jobs of the Day</h2>

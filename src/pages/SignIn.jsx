@@ -3,10 +3,14 @@ import { AuthContext } from '../context/AuthContext/AuthContext';
 import loginLottie from '../assets/lotties/Animation - 1748677891289.json'
 import Lottie from 'lottie-react';
 import SocialLogin from './Shared/SocialLogin';
+import { useLocation, useNavigate } from 'react-router';
 const SignIn = () => {
  
-const {logInUser} = useContext(AuthContext)
-
+    const { logInUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state || '/'
+    
     const handleRegister = e => {
         e.preventDefault()
         const form = e.target;
@@ -17,6 +21,7 @@ const {logInUser} = useContext(AuthContext)
        logInUser(email, password)
             .then(res => {
                 console.log(res.user)
+                navigate(from)
             })
             .catch(error => {
                 console.log(error)
@@ -45,7 +50,7 @@ const {logInUser} = useContext(AuthContext)
                                 <button className="btn btn-neutral mt-4">Register</button>
                             </fieldset>
                         </form>
-                        <SocialLogin/>
+                        <SocialLogin from={from} />
                     </div>
                 </div>
             </div>
