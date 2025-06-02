@@ -19,7 +19,7 @@ const Navbar = () => {
     const links = <>
         <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/'><li className='mr-5'>Home</li></NavLink>
         <NavLink  className={({isActive}) => isActive && 'text-blue-500'} to='/about'><li className='mr-5'>About</li></NavLink>
-        <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/res'><li className='mr-5'>Res</li></NavLink>
+        <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/myApplications'><li className='mr-5'>MyApplications</li></NavLink>
     </>
 
     return (
