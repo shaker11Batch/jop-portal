@@ -1,7 +1,7 @@
 import React from 'react';
 
 const JobApplicationsRow = ({ application, index }) => {
-    const {linkeding, title, company_logo ,company} = application;
+    const { title, company_logo ,company} = application;
     return (
         <tr>
             <th>

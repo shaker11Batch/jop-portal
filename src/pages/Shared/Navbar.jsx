@@ -18,8 +18,18 @@ const Navbar = () => {
 
     const links = <>
         <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/'><li className='mr-5'>Home</li></NavLink>
-        <NavLink  className={({isActive}) => isActive && 'text-blue-500'} to='/about'><li className='mr-5'>About</li></NavLink>
-        <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/myApplications'><li className='mr-5'>MyApplications</li></NavLink>
+        <NavLink className={({ isActive }) => isActive && 'text-blue-500'} to='/about'><li className='mr-5'>About</li></NavLink>
+        {/* for applicant links. check roles as well  */}
+        {
+            user &&    <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/myApplications'><li className='mr-5'>MyApplications</li></NavLink>
+     }
+        {/* for recruiter. check role as well */}
+          {
+            user && <>
+                <NavLink className={({ isActive }) => isActive && 'text-blue-500'} to='/addJob'><li className='mr-5'>Add Job</li></NavLink>
+                <NavLink className={({isActive}) => isActive && 'text-blue-500'} to='/myPostedJob'><li className='mr-5'>My Jobs</li></NavLink>
+            </>
+     }
     </>
 
     return (
